@@ -1,4 +1,4 @@
-function [ correlation_response ] = correlate_with_template( image, template_image )
+function [ correlation_response ] = correlateWithTemplate( image, template_image )
 %CORRELATE_WITH_TEMPLATE Summary of this function goes here
 %   Detailed explanation goes here
 
