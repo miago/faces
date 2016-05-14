@@ -1,6 +1,9 @@
 function [ face_templates ] = getFaceTemplates()
 %GETFACETEMPLATES Summary of this function goes here
 %   Detailed explanation goes here
+% usage: 
+%            faces = getFaceTemplates();
+%            face1 = cell2mat(faces{1});
 
 lst = dir(strcat('face_templates/','*.png'));
 
