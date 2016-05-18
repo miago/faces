@@ -7,6 +7,8 @@ ORimages = getORimages();
 corr_result = correlateWithTemplate(cell2mat(ORimages{1}), faces);
 
 %%
+
+% this is for Tiffany
 figure();
 subplot(3,4,1)
 imagesc(cell2mat(faces{1}));
