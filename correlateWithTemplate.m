@@ -1,7 +1,7 @@
 function [ resp ] = correlateWithTemplate( image, template_image )
 %CORRELATE_WITH_TEMPLATE Summary of this function goes here
 %   Detailed explanation goes here
-
+% //////////////////////////////////
 if iscell(template_image)
     resp = cell(length(template_image), 1);
 end
