@@ -51,3 +51,21 @@ hold on;
 if score > 0.4
     plot(x,y, 'o')
 end
+
+%% 
+corr_result = correlateWithTemplate(cell2mat(ORimages{13}), faces);
+
+figure();
+subplot(3,4,1)
+imagesc(cell2mat(faces{2}));
+subplot(3,4,2);
+imagesc(cell2mat(corr_result{1}));
+subplot(3,4,3)
+surf(cell2mat(corr_result{1}));
+subplot(3,4,4)
+imagesc(cell2mat(ORimages{13}));
+hold on;
+[x,y,score] = getCorrelationLocationAndScore(cell2mat(corr_result{13}));
+if score > 0.4
+    plot(x,y, 'o')
+end
