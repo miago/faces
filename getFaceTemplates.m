@@ -13,7 +13,7 @@ face_templates = cell(nr_pictures, 1);
 
 for a = 1:nr_pictures
     tmp_image = imread(strcat('face_templates/', lst(a).name));
-   	face_templates{a} = mat2cell(tmp_image, size(tmp_image,1), size(tmp_image,2), 3);   
+   	face_templates{a} = tmp_image;   
 end
 
 end

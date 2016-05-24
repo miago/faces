@@ -14,6 +14,7 @@ for img_id = 1:length(image_number)
     img_nr = image_number(img_id);
     image_string = sprintf('picture_%1.2d', img_nr);
     
+    locations.(image_string) = struct;
     % TODO: get variable by name inside for loop
 
     if ~isnan(p1x(img_nr))

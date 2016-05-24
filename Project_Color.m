@@ -11,7 +11,7 @@ R=I(:,:,1);G=I(:,:,2);B=I(:,:,3);
 I_blur=I;
  index_face=zeros(l,w);
 for i=1:l-30
-    for j=1:w-30
+    for j=1:w-30    
         R_patch=R(i:i+30,j:j+30);
         G_patch=G(i:i+30,j:j+30);
         B_patch=B(i:i+30,j:j+30);

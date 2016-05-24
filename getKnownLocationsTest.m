@@ -26,6 +26,13 @@ classdef getKnownLocationsTest < matlab.unittest.TestCase
             testCase.assertEqual(locations.picture_23.person_4.x, 952);
             testCase.assertEqual(locations.picture_23.person_4.y, 312);
         end
+        
+        function testNoPersonInImage(testCase)
+            
+            locations = getKnownLocations();
+            
+            testCase.assertEqual(numel(fieldnames(locations.picture_36)), 0);
+        end
     end
     
 end
