@@ -1,5 +1,5 @@
 % Project_BGsubtraction
-function [output]=BGsubtraction(ALL_I)
+function [output,change_per,series_I]=BGsubtraction(ALL_I)
 % ALL_I=getORimages( );
 for i=1:length(ALL_I)-1
 I_Sub{i}=ALL_I{i+1}-ALL_I{i};
@@ -69,7 +69,7 @@ for i=1:sig_ind
     end
 end
 % --------------
-continuous_scene=zeros(1,length(output));
+ continuous_scene=zeros(1,length(output));
 change_ind=continuous_scene;
 for i=1:length(sig_ind)-1
     if sig_ind(i)+1==sig_ind(i+1)
@@ -98,7 +98,6 @@ tmp=output;
 for i=1:length(series_I)
     sum=ones(si_I(1),si_I(2));
     I_n=series_I{i};
-%      I_n=[I_n,I_n(end)];
 %     tmp=output(I_n);
     for j=I_n
     sum=sum.*tmp{j};
@@ -106,6 +105,8 @@ for i=1:length(series_I)
     for k=I_n
     output{k}=sum;
     end
+    I_n=[I_n,I_n(end)+1];
+      series_I{i}=I_n;
 end
 
 if series_I{end}==length(ALL_I)-1
