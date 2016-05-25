@@ -1,4 +1,4 @@
-function [ location ] = getBackgorundLocation( image, filterBankSize,y_res, x_res)
+function [ background_layer ] = getBackgorundLocation( image, filterBankSize,y_res, x_res)
 %GETBACKGORUNDLOCATION Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -36,10 +36,10 @@ for y_idx = 1:length(y_positions)
         resp_with_image(y_idx, x_idx) = r1;
     end 
     
-    sprintf('%f %% Done', y_idx/y_res*100)
+    %sprintf('%f %% Done', y_idx/y_res*100)
 end
 
-figure(); imagesc(resp_with_image); colorbar;
+%figure(); imagesc(resp_with_image); colorbar;
 picture_scaled = imresize(resp_with_image, [720, 1280]);
 
 
@@ -47,7 +47,7 @@ picture_scaled = imresize(resp_with_image, [720, 1280]);
 ab=reshape(picture_scaled,1280*720,1);
 [idx, center] = kmeans(ab, 2);
 final_background=reshape(idx,720,1280);
-figure(); imshow(final_background, []);
+%figure(); imshow(final_background, []);
 
 total_2 = 0;
 cnt_2 = 0;
@@ -78,15 +78,17 @@ else
 end
 se = strel('disk', 100);
 closed_image = imclose(final_background, se);
-figure(); imshow(closed_image, []);
+%figure(); imshow(closed_image, []);
 
-background_subtracted_image_r = double(closed_image).*double(image(:,:,1));
-background_subtracted_image_g = double(closed_image).*double(image(:,:,2));
-background_subtracted_image_b = double(closed_image).*double(image(:,:,3));
-background_subtracted_image(:,:,1) = background_subtracted_image_r;
-background_subtracted_image(:,:,2) = background_subtracted_image_g;
-background_subtracted_image(:,:,3) = background_subtracted_image_b;
-figure();imshow(uint8(background_subtracted_image))
+%background_subtracted_image_r = double(closed_image).*double(image(:,:,1));
+%background_subtracted_image_g = double(closed_image).*double(image(:,:,2));
+%background_subtracted_image_b = double(closed_image).*double(image(:,:,3));
+%background_subtracted_image(:,:,1) = background_subtracted_image_r;
+%background_subtracted_image(:,:,2) = background_subtracted_image_g;
+%background_subtracted_image(:,:,3) = background_subtracted_image_b;
+%figure();imshow(uint8(background_subtracted_image))
+
+background_layer = closed_image;
 
 end
 
