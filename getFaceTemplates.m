@@ -5,7 +5,7 @@ function [ face_templates ] = getFaceTemplates()
 %            faces = getFaceTemplates();
 %            face1 = cell2mat(faces{1});
 
-lst = dir(strcat('face_templates/','*.png'));
+lst = dir(strcat('face_templates/','p*.png'));
 
 nr_pictures = size(lst, 1);
 

@@ -13,7 +13,13 @@ for person = fieldnames(locations)'
     x_coor = locations.(person{1}).x;
     y_coor = locations.(person{1}).y;
     
-    cropped_exp = z(max(1,(region_size+1)/2-y_coor+1):min(region_size, picture_size(1)-y_coor+(region_size+1)/2),max(1,(region_size+1)/2-x_coor+1):min(region_size, picture_size(2)-x_coor+(region_size+1)/2));
+    if isfield(locations, 'score') == 1
+        score = locations.(person{1}).score;
+    else
+        score = 1;
+    end
+    
+    cropped_exp = score * z(max(1,(region_size+1)/2-y_coor+1):min(region_size, picture_size(1)-y_coor+(region_size+1)/2),max(1,(region_size+1)/2-x_coor+1):min(region_size, picture_size(2)-x_coor+(region_size+1)/2));
     
     x_start = max(1,x_coor-(region_size-1)/2);
     x_stop = min(picture_size(2),x_coor+(region_size-1)/2);

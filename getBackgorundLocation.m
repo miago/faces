@@ -1,6 +1,6 @@
 function [ background_layer ] = getBackgorundLocation( image, filterBankSize,y_res, x_res)
 %GETBACKGORUNDLOCATION Summary of this function goes here
-%   Detailed explanation goes here
+%   0s are background 1s represent foreground
 
 response = [];
 for ii=0:3
@@ -76,6 +76,8 @@ else
     % 2s represent the background
     final_background = -1.*(final_background - 2);
 end
+
+
 se = strel('disk', 100);
 closed_image = imclose(final_background, se);
 %figure(); imshow(closed_image, []);
